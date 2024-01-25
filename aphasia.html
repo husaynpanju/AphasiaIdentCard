@@ -103,9 +103,18 @@
 
             <fieldset>
                 <legend>Check the boxes that apply</legend>
-                <label><input type="checkbox" id="speakSlower" name="communicationPreference"> Speak slower with simpler
-                    language</label>
-                <label><input type="checkbox" id="writeKeyWords" name="communicationPreference"> Write key words for me</label>
+                <label><input type="checkbox" id="makeSure" name="communicationPreference"> Make sure you have my attention before you start</label>
+                <label><input type="checkbox" id="loudNoises" name="communicationPreference">Shut off loud noises so I can concentrate</label>
+                <label><input type="checkbox" id="speakSlow" name="communicationPreference"> Speak slowly</label>
+                <label><input type="checkbox" id="simpleCommunication" name="communicationPreference">Keep communication simple, but adult</label>
+                <label><input type="checkbox" id="keyWords" name="communicationPreference"> Write key words for me</label>
+                <label><input type="checkbox" id="showMe" name="communicationPreference">Show me what you mean &#40;gesturing, using objects/images&#41;</label>
+                <label><input type="checkbox" id="giveMeAMinute" name="communicationPreference"> Give me a minute to respond</label>
+                <label><input type="checkbox" id="yesNoQuestions" name="communicationPreference"> Ask me yes/no questions to confirm we are communicating successfully</label>
+                <label><input type="checkbox" id="writtenChoices" name="communicationPreference"> Give me a few written choices for answers</label>
+                <label><input type="checkbox" id="useDrawingWriting" name="communicationPreference"> I use drawing/writing to help me talk</label>
+                <label><input type="checkbox" id="confirmUnderstanding" name="communicationPreference"> I may mix up words &ndash; please confirm that you understand me</label>
+                <label><input type="checkbox" id="callCaregiver" name="communicationPreference"> Call my caregiver for information</label>
             </fieldset>
 
             <button type="button" onclick="generateCard()">Generate Card</button>
@@ -123,8 +132,19 @@
             var address = document.getElementById('address').value;
             var emergContact = document.getElementById('emergContact').value;
             var phone = document.getElementById('phone').value;
-            var speakSlower = document.getElementById('speakSlower').checked;
-            var writeKeyWords = document.getElementById('writeKeyWords').checked
+            var makeSureChecked = document.getElementById("makeSure").checked;
+            var loudNoisesChecked = document.getElementById("loudNoises").checked;
+            var speakSlowChecked = document.getElementById("speakSlow").checked;
+            var simpleCommunicationChecked = document.getElementById("simpleCommunication").checked;
+            var keyWordsChecked = document.getElementById("keyWords").checked;
+            var showMeChecked = document.getElementById("showMe").checked;
+            var giveMeAMinuteChecked = document.getElementById("giveMeAMinute").checked;
+            var yesNoQuestionsChecked = document.getElementById("yesNoQuestions").checked;
+            var writtenChoicesChecked = document.getElementById("writtenChoices").checked;
+            var useDrawingWritingChecked = document.getElementById("useDrawingWriting").checked;
+            var confirmUnderstandingChecked = document.getElementById("confirmUnderstanding").checked;
+            var callCaregiverChecked = document.getElementById("callCaregiver").checked;
+
 
             var cardHtml = `
     <div class="header">Please Read This</div>
@@ -135,9 +155,20 @@
     <div class="thick-bar"></div>
     <p>To help me:</p>
     <ul>
-      ${speakSlower ? '<li>Speak slower with simpler language</li>' : ''}
-      ${writeKeyWords ? '<li>Write key words for me</li>' : ''}
+    ${makeSureChecked ? '<li>Make sure you have my attention before you start</li>' : ''}
+    ${loudNoisesChecked ? '<li>Shut off loud noises so I can concentrate</li>' : ''}
+    ${speakSlowChecked ? '<li>Speak slowly</li>' : ''}
+    ${simpleCommunicationChecked ? '<li>Keep communication simple, but adult</li>' : ''}
+    ${keyWordsChecked ? '<li>Write key words for me</li>' : ''}
+    ${showMeChecked ? '<li>Show me what you mean (gesturing, using objects/images)</li>' : ''}
+    ${giveMeAMinuteChecked ? '<li>Give me a minute to respond</li>' : ''}
+    ${yesNoQuestionsChecked ? '<li>Ask me yes/no questions to confirm we are communicating successfully</li>' : ''}
+    ${writtenChoicesChecked ? '<li>Give me a few written choices for answers</li>' : ''}
+    ${useDrawingWritingChecked ? '<li>I use drawing/writing to help me talk</li>' : ''}
+    ${confirmUnderstandingChecked ? '<li>I may mix up words – please confirm that you understand me</li>' : ''}
+    ${callCaregiverChecked ? '<li>Call my caregiver for information</li>' : ''}
     </ul>
+
   `;
 
             var cardPreview = document.getElementById('cardPreview');
